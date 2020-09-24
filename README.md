@@ -11,6 +11,10 @@
 9. Configre static and media
 10. (optional) SSL for domain
 
+Simplifications:
+1. Remote server host: example.com
+2. Remote user: a1
+
 
 1. Connect to server through SSH. Then
 ```
@@ -18,19 +22,23 @@ sudo adduser a1
 sudo usermod -aG sudo a1
 ```
 
-On a local machine:
+Local machine:
 ```
-ssh-copy-id a1@domain 
+ssh-copy-id a1@example.com
 sudo mcedit /ssh/ssh_config
-Host server_host
-Hosname demo
+Host example.com
+Hostname example
 User a1
 Port 2022
 ```
-2. Connect to server via key
+
+2. Connect to server via key and then:
 ```
 sudo mcedit /etc/ssh/sshd_config
 PermitRootLogin no
 PasswordAuthentication no
 Port 2022
+sudo service ssh restart
 ```
+Now we may connect to server via `ssh example` withoud password and we are ready to step3. 
+
