@@ -40,7 +40,12 @@ PasswordAuthentication no
 Port 2022
 sudo service ssh restart
 ```
-Now we may connect to server via `ssh example` without password and we ready to next step.
+Now we may connect to server via `ssh example` without password. 
+Make some console sugar:
+```
+oh-my-zsh:
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
 
 Step 3. Install packages.
 ```
