@@ -17,30 +17,20 @@
 sudo adduser a1
 sudo usermod -aG sudo a1
 ```
-Exit from server and then:
 
+On a local machine:
 ```
 ssh-copy-id a1@domain 
-```
-2. Connect to server via key. Then:
-```
-sudo mcedit /etc/ssh/sshd_config
-PermitRootLogin no
-PasswordAuthentication no
-Port 2022
-
-sudo service ssh restart
-```
-Exit from server again and on local:
-```
 sudo mcedit /ssh/ssh_config
 Host server_host
 Hosname demo
 User a1
 Port 2022
 ```
-
-Finally, connect to server via:
+2. Connect to server via key
 ```
-ssh demo
+sudo mcedit /etc/ssh/sshd_config
+PermitRootLogin no
+PasswordAuthentication no
+Port 2022
 ```
