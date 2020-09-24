@@ -16,7 +16,7 @@ Simplifications:
 2. Remote user: a1
 
 -----
-1. Connect to server through SSH. Then
+Step 1. Connect to server through SSH. Then
 ```
 sudo adduser a1
 sudo usermod -aG sudo a1
@@ -32,7 +32,7 @@ User a1
 Port 2022
 ```
 
-2. Connect to server via key and then:
+Step 2. Connect to server via key and then:
 ```
 sudo mcedit /etc/ssh/sshd_config
 PermitRootLogin no
@@ -40,5 +40,10 @@ PasswordAuthentication no
 Port 2022
 sudo service ssh restart
 ```
-Now we may connect to server via `ssh example` withoud password and we are ready to step3. 
+Now we may connect to server via `ssh example` without password and we ready to next step.
 
+Step 3. Install packages.
+```
+sudo apt-get install -y zsh tree redis-server nginx libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-dev python3-lxml libxslt-dev python-libxml2 python-libxslt1 libffi-dev libssl-dev python-dev gnumeric libsqlite3-dev libpq-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev libcurl4-openssl-dev supervisor
+```
+Step 4. Install python from source.
