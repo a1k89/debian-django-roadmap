@@ -15,7 +15,7 @@ Simplifications:
 1. Remote server host: example.com
 2. Remote user: a1
 
-
+-----
 1. Connect to server through SSH. Then
 ```
 sudo adduser a1
