@@ -1,5 +1,4 @@
-# debian-django-roadmap
-Deploy Django on Debian server step by step
+# Deploy Django on Debian server
 
 1. Connect to server via root and create new user
 2. Setup SSH
