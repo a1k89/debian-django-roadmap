@@ -139,7 +139,7 @@ server {
     }
 }
 
-sudo ln -s /etc/nginx/site-available/site.conf /etc/nginx/sites-enabled/site.conf
+sudo ln -s /etc/nginx/sites-available/site.conf /etc/nginx/sites-enabled/site.conf
 sudo service nginx restart
 ```
 
@@ -202,6 +202,9 @@ sudo adduser www-data a1 varwwwusers
 sudo chgrp -R varwwwusers /var/www/
 sudo chmod 770 -R /var/www/
 sudo chmod g+s  /var/www/
+
+sudo service nginx restart
+relogin
 ```
 Now we don't have any problems with permissions with media/static/.
 
