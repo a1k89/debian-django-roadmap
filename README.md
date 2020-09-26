@@ -193,6 +193,24 @@ sudo supervisorctl update
 sudo supervisorctl restart all
 ```
 
+Step 9. Media and Static.
+I have many problems with static and media files on production.
+For example, 403 Forbidden error.
+Finally, I found solution:
+
+```
+sudo groupadd varwwwusers
+sudo adduser www-data a1 varwwwusers
+sudo chgrp -R varwwwusers /var/www/
+sudo chmod 770 -R /var/www/
+sudo chmod g+s  /var/www/
+```
+Now we don't have any problems with permissions with media/static/.
+
+Go to the project directory and:
+```
+python manage.py collectstatic
+```
 
 
 
