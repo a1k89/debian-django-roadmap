@@ -51,3 +51,13 @@ oh-my-zsh:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 Step 4. Install python from source.
+```
+wget https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tgz
+tar xvf Python-3.7.9
+cd Python-3.7.9
+mkdir ~/.python
+./configure --enable-optimizations --prefix=/home/a1/.python
+make -j8
+sudo make altinstall
+```
+
