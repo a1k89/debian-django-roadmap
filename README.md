@@ -147,31 +147,29 @@ Gunicorn:
 file path: /home/a1/backend/bin/gunicorn_script.bash
 ```
 #!/bin/bash
-
-NAME="gunicorn_app"                                  # Name of the application
-DJANGODIR="/home/a1/backend/"         # Django project directory
-SOCKFILE="/var/tmp/main.sock"  # we will communicte using this unix socket
-USER="www-data"                                        # the user to run as
-GROUP="www-data"                                     # the group to run as
-NUM_WORKERS=3                                  # how many worker processes should Gunicorn spawn
-DJANGO_SETTINGS_MODULE="project.settings"            # which settings file should Django use
-DJANGO_WSGI_MODULE="project.wsgi"                     # WSGI module name
+NAME="gunicorn_app"                                 
+DJANGODIR="/home/a1/backend/"      
+SOCKFILE="/var/tmp/main.sock"
+USER="www-data"                                
+GROUP="www-data"                     
+NUM_WORKERS=3                           
+DJANGO_SETTINGS_MODULE="project.settings"           
+DJANGO_WSGI_MODULE="project.wsgi" 
 
 cd $DJANGODIR
 source ienv/bin/activate
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 
-# Create the run directory if it doesn't exist
 RUNDIR=$(dirname $SOCKFILE)
 test -d $RUNDIR || mkdir -p $RUNDIR
-
 
 exec ienv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --threads=2\
-  --user=$USER --group=$GROUP \
+  --user=$USER \
+  --group=$GROUP \
   --bind=unix:$SOCKFILE \
   --log-level=debug \
   --log-file=-
