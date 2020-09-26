@@ -176,7 +176,7 @@ exec ienv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
 ```
 
 Supervisor:
-/etc/supervisor/main.conf
+/etc/supervisor/conf/main.conf
 
 ```
 [program:core-gunicorn]
@@ -185,6 +185,10 @@ user = www-data
 stdout_logfile = /home/a1/backend/logs/gunicorn.log  
 redirect_stderr = true                                    
 environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8
+
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl restart all
 ```
 
 
