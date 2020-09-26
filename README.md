@@ -14,6 +14,9 @@
 Simplifications:
 1. Remote server host: example.com
 2. Remote user: a1
+3. Core directory (inside home): backend (/home/a1/backend)
+4. Virtualenv directory: /home/a1/backend/ienv/
+5. Main project directory: /home/a1/backend/project/
 
 -----
 Step 1. Connect to server through SSH. Then
@@ -99,7 +102,7 @@ pip install -r requirements.txt
 
 Step 8. Nginx, Gunicorn, Supervisor
 Nginx:
-/etc/nginx/sites-enabled/site.conf
+file path: /etc/nginx/sites-enabled/site.conf
 
 ```
 upstream main {
@@ -134,7 +137,6 @@ server {
             break;
         }
     }
-
 }
 
 sudo ln -s /etc/nginx/site-available/site.conf /etc/nginx/sites-enabled/site.conf
@@ -142,7 +144,7 @@ sudo service nginx restart
 ```
 
 Gunicorn: 
-/home/a1/backend/bin/gunicorn_script.bash
+file path: /home/a1/backend/bin/gunicorn_script.bash
 ```
 #!/bin/bash
 
@@ -176,7 +178,7 @@ exec ienv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
 ```
 
 Supervisor:
-/etc/supervisor/conf/main.conf
+file path: /etc/supervisor/conf/main.conf
 
 ```
 [program:core-gunicorn]
