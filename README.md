@@ -61,3 +61,29 @@ make -j8
 sudo make altinstall
 ```
 
+Add python to path:
+```
+sudo mcedit ~/.zshrc
+export PATH=$PATH:/home/a1/.python/bin
+```
+
+Step 5. Cloning project from repo
+Step 6. Install and configure postgreSQL
+```
+Prepare:
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+sudo apt-get update
+
+Installation:
+sudo apt-get install postgresql-12 postgresql-client-12
+
+Create user for project:
+sudo -u postgres psql
+create user a1dbuser with password 'password';
+create database a1db with owner a1dbuser;
+\q;
+```
+
+
+
