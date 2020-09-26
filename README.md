@@ -97,5 +97,96 @@ pip install -r requirements.txt
 
 ```
 
+Step 8. Nginx, Gunicorn, Supervisor
+Nginx:
+/etc/nginx/sites-enabled/site.conf
+
+```
+upstream main {
+  server unix:///var/tmp/main.sock;
+}
+
+server {
+    listen 80;
+    server_name {domain_or_ip};
+    access_log    /var/log/nginx/access.log;
+    error_log    /var/log/nginx/error.log;
+
+    location /static/ {
+        alias    /var/www/static/;
+    }
+
+    location /media/ {
+        alias    /var/www/media/;
+    }
+    
+    location ~ /.well-known {
+        allow all;
+    }
+
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+
+        if (!-f $request_filename) {
+            proxy_pass http://main;
+            break;
+        }
+    }
+
+}
+
+sudo ln -s /etc/nginx/site-available/site.conf /etc/nginx/sites-enabled/site.conf
+sudo service nginx restart
+```
+
+Gunicorn: 
+/home/a1/backend/bin/gunicorn_script.bash
+```
+#!/bin/bash
+
+NAME="gunicorn_app"                                  # Name of the application
+DJANGODIR="/home/a1/backend/"         # Django project directory
+SOCKFILE="/var/tmp/main.sock"  # we will communicte using this unix socket
+USER="www-data"                                        # the user to run as
+GROUP="www-data"                                     # the group to run as
+NUM_WORKERS=3                                  # how many worker processes should Gunicorn spawn
+DJANGO_SETTINGS_MODULE="project.settings"            # which settings file should Django use
+DJANGO_WSGI_MODULE="project.wsgi"                     # WSGI module name
+
+cd $DJANGODIR
+source ienv/bin/activate
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+
+exec ienv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+  --name $NAME \
+  --workers $NUM_WORKERS \
+  --threads=2\
+  --user=$USER --group=$GROUP \
+  --bind=unix:$SOCKFILE \
+  --log-level=debug \
+  --log-file=-
+```
+
+Supervisor:
+/etc/supervisor/main.conf
+
+```
+[program:core-gunicorn]
+command = /home/a1/backend/bin/gunicorn_script.bash
+user = www-data                                                         
+stdout_logfile = /home/a1/backend/logs/gunicorn.log  
+redirect_stderr = true                                    
+environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8
+```
+
+
 
 
