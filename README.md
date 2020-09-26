@@ -44,7 +44,7 @@ Now we may connect to server via `ssh example` without password.
 
 Step 3. Install packages.
 ```
-sudo apt-get install -y zsh tree redis-server nginx libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-dev python3-lxml libxslt-dev python-libxml2 python-libxslt1 libffi-dev libssl-dev python-dev gnumeric libsqlite3-dev libpq-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev libcurl4-openssl-dev supervisor gcc
+sudo apt-get install -y zsh tree redis-server nginx libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-dev python3-lxml libxslt-dev python-libxml2 python-libxslt1 libffi-dev libssl-dev python-dev gnumeric libsqlite3-dev libpq-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev libcurl4-openssl-dev supervisor gcc python3-setuptools
 ```
 ```
 oh-my-zsh:
@@ -67,7 +67,8 @@ sudo mcedit ~/.zshrc
 export PATH=$PATH:/home/a1/.python/bin
 ```
 
-Step 5. Cloning project from repo
+Step 5. Cloning project from repo.
+
 Step 6. Install and configure postgreSQL
 ```
 Prepare:
@@ -83,6 +84,17 @@ sudo -u postgres psql
 create user a1dbuser with password 'password';
 create database a1db with owner a1dbuser;
 \q;
+```
+
+Step 7. Install packages
+```
+Create virtual environment:
+python3.7 -m venv ienv
+source ienv/bin/activate
+
+Finally:
+pip install -r requirements.txt
+
 ```
 
 
