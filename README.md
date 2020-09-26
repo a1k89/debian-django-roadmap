@@ -198,7 +198,7 @@ Finally, I found solution:
 
 ```
 sudo groupadd varwwwusers
-sudo adduser www-data a1 varwwwusers
+sudo adduser www-data varwwwusers
 sudo chgrp -R varwwwusers /var/www/
 sudo chmod 770 -R /var/www/
 sudo chmod g+s  /var/www/
