@@ -35,7 +35,7 @@ User a1
 Port 2022
 ```
 
-Step 2. Connect to server via key and then:
+Step 2. Connect to server through key:
 ```
 sudo mcedit /etc/ssh/sshd_config
 PermitRootLogin no
@@ -43,21 +43,27 @@ PasswordAuthentication no
 Port 2022
 sudo service ssh restart
 ```
-Now we may connect to server via `ssh example` without password.
+Now we may connect to server via `ssh example` without password. Good.
 
 Step 3. Install packages.
+This is a wide list of all packages.
 ```
 sudo apt-get install -y zsh tree redis-server nginx libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-dev python3-lxml libxslt-dev python-libxml2 python-libxslt1 libffi-dev libssl-dev python-dev gnumeric libsqlite3-dev libpq-dev libxml2-dev libxslt1-dev libjpeg-dev libfreetype6-dev libcurl4-openssl-dev supervisor gcc python3-setuptools
 ```
+
+I like `oh-my-zsh`. Set of plugins for zsh.
 ```
 oh-my-zsh:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 Step 4. Install python from source.
+Note1. I create .python folder inside a home directory. This is a good practic install python to one directory.
+In a future if you wish to delete it python version - you simple delete folder .python
+Note2. `prefix` - directory for installation
 ```
-wget https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tgz
-tar xvf Python-3.7.9
-cd Python-3.7.9
+wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
+tar xvf Python-3.8.5
+cd Python-3.8.5
 mkdir ~/.python
 ./configure --enable-optimizations --prefix=/home/a1/.python
 make -j8
@@ -71,8 +77,12 @@ export PATH=$PATH:/home/a1/.python/bin
 ```
 
 Step 5. Cloning project from repo.
+Github, Bitbucket, Gitlab. Which you wish?
 
 Step 6. Install and configure postgreSQL
+Note1. Install latest version of postgreSQL
+Note2. If you have database dump, you may download all data to your new database.
+
 ```
 Prepare:
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -102,7 +112,8 @@ pip install -r requirements.txt
 
 Step 8. Nginx, Gunicorn, Supervisor
 Nginx:
-file path: /etc/nginx/sites-enabled/site.conf
+
+/etc/nginx/sites-enabled/site.conf
 
 ```
 upstream main {
@@ -144,7 +155,11 @@ sudo service nginx restart
 ```
 
 Gunicorn: 
-file path: /home/a1/backend/bin/gunicorn_script.bash
+
+Note1. I collect all gunicorn commands in one bash script. 
+Note2. Plese add +x rules for file.
+
+/home/a1/backend/bin/gunicorn_script.bash
 ```
 #!/bin/bash
 NAME="gunicorn_app"                                 
@@ -176,7 +191,8 @@ exec ienv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
 ```
 
 Supervisor:
-file path: /etc/supervisor/conf/main.conf
+
+/etc/supervisor/conf/main.conf
 
 ```
 [program:core-gunicorn]
