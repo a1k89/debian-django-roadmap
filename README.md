@@ -56,9 +56,9 @@ I like `oh-my-zsh`. Set of plugins for zsh.
 oh-my-zsh:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
-Step 4. Install python from source.  
+Step 4. Install python from source.\
 Note1. I create .python folder inside a home directory. This is a good practic install python to one directory.
-In a future if you wish to delete it python version - you simple delete folder .python. 
+In a future if you wish to delete it python version - you simple delete folder .python.\
 Note2. `prefix` - directory for installation
 ```
 wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
