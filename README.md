@@ -59,7 +59,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 Step 4. Install python from source.\
 Note1. I create .python folder inside a home directory. This is a good practic install python to one directory.
 In a future if you wish to delete it python version - you simple delete folder .python.\
-Note2. `prefix` - directory for installation
+Note2. `prefix` - directory for installation\
 ```
 wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
 tar xvf Python-3.8.5
@@ -79,9 +79,9 @@ export PATH=$PATH:/home/a1/.python/bin
 Step 5. Cloning project from repo.
 Github, Bitbucket, Gitlab. Which you wish?
 
-Step 6. Install and configure postgreSQL
-Note1. Install latest version of postgreSQL
-Note2. If you have database dump, you may download all data to your new database.
+Step 6. Install and configure postgreSQL\
+Note1. Install latest version of postgreSQL\
+Note2. If you have database dump, you may download all data to your new database.\
 
 ```
 Prepare:
@@ -154,12 +154,11 @@ sudo ln -s /etc/nginx/sites-available/site.conf /etc/nginx/sites-enabled/site.co
 sudo service nginx restart
 ```
 
-Gunicorn: 
+Gunicorn: \
+Note1. I collect all gunicorn commands in one bash script.\
+Note2. Plese add +x rules for file.\
 
-Note1. I collect all gunicorn commands in one bash script. 
-Note2. Plese add +x rules for file.
-
-/home/a1/backend/bin/gunicorn_script.bash
+/home/a1/backend/bin/gunicorn_script.bash\
 ```
 #!/bin/bash
 NAME="gunicorn_app"                                 
