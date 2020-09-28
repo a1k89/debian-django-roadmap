@@ -19,13 +19,13 @@ Simplifications:
 5. Main project directory: /home/a1/backend/project/
 
 -----
-Step 1. Connect to server through SSH. Then
+Step 1. After connecting through SSH we add new user and add user to `sudo` group.
 ```
 sudo adduser a1
 sudo usermod -aG sudo a1
 ```
 
-Local machine:
+On a local machine we copy `ssh-key` to server and create `ssh alias`
 ```
 ssh-copy-id a1@example.com
 sudo mcedit /ssh/ssh_config
@@ -35,7 +35,7 @@ User a1
 Port 2022
 ```
 
-Step 2. Connect to server through key:
+Step 2. Return to server and edit `sshd_config` and change `port`.
 ```
 sudo mcedit /etc/ssh/sshd_config
 PermitRootLogin no
@@ -43,7 +43,9 @@ PasswordAuthentication no
 Port 2022
 sudo service ssh restart
 ```
-Now we may connect to server via `ssh example` without password. Good.
+
+Finally: \
+Now we can connect through `ssh example`. Go to the next step. Works with packages.
 
 Step 3. Install packages.
 This is a wide list of all packages.
@@ -76,7 +78,7 @@ sudo mcedit ~/.zshrc
 export PATH=$PATH:/home/a1/.python/bin
 ```
 
-Step 5. Cloning project from repo.
+Step 5. Cloning project from repo.\
 Github, Bitbucket, Gitlab. Which you wish?
 
 Step 6. Install and configure postgreSQL\
@@ -113,7 +115,7 @@ pip install -r requirements.txt
 Step 8. Nginx, Gunicorn, Supervisor
 Nginx:
 
-/etc/nginx/sites-enabled/site.conf
+/etc/nginx/sites-enabled/site.conf\
 
 ```
 upstream main {
