@@ -239,7 +239,7 @@ sudo certbot --nginx
 sudo certbot renew --dry-run
 ```
 
-Finally, check: https://exapmle.com/ \
+Finally, check: https://example.com/ \
 And this is all about SSL. Simple. Stable. Free.
 
 
