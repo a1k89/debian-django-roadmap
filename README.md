@@ -230,5 +230,8 @@ Go to the project directory and:
 python manage.py collectstatic
 ```
 
+Step 10 (optional). SSL \
+Note 1. Use [free and great open source solution](https://letsencrypt.org/)
+
 
 
