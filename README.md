@@ -19,7 +19,7 @@ Simplifications:
 5. Main project directory: /home/a1/backend/project/
 
 -----
-**Step 1. After connecting through SSH we add new user and add user to `sudo` group.**\
+**Step 1. After connecting through SSH we add new user and add user to `sudo` group.**
 ```
 sudo adduser a1
 sudo usermod -aG sudo a1
@@ -60,7 +60,7 @@ oh-my-zsh:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-**Step 4. Install python from source**\
+**Step 4. Install python from source**
 Note1. I create .python folder inside a home directory. This is a good practic install python to one directory.
 In a future if you wish to delete it python version - you simple delete folder .python.\
 Note2. `prefix` - directory for installation\
@@ -80,10 +80,12 @@ sudo mcedit ~/.zshrc
 export PATH=$PATH:/home/a1/.python/bin
 ```
 
-Step 5. Cloning project from repo.\
+
+**Step 5. Cloning project from repo**
 Github, Bitbucket, Gitlab. Which you wish?
 
-Step 6. Install and configure postgreSQL\
+
+**Step 6. Install and configure postgreSQL**
 Note1. Install latest version of postgreSQL\
 Note2. If you have database dump, you may download all data to your new database.\
 
@@ -103,7 +105,7 @@ create database a1db with owner a1dbuser;
 \q;
 ```
 
-Step 7. Install packages
+**Step 7. Install packages**
 ```
 Create virtual environment:
 python3.7 -m venv ienv
@@ -114,7 +116,7 @@ pip install -r requirements.txt
 
 ```
 
-Step 8. Nginx, Gunicorn, Supervisor
+**Step 8. Nginx, Gunicorn, Supervisor**
 Nginx:
 
 /etc/nginx/sites-enabled/site.conf\
@@ -210,7 +212,7 @@ sudo supervisorctl update
 sudo supervisorctl restart all
 ```
 
-Step 9. Media and Static.
+**Step 9. Media and Static**
 I have many problems with static and media files on production.
 For example, 403 Forbidden error.
 Finally, I found solution:
@@ -232,7 +234,7 @@ Go to the project directory and:
 python manage.py collectstatic
 ```
 
-Step 10 (optional). SSL \
+**Step 10 (optional). SSL**\
 Note 1. Use [letsencrypt - free and great open source solution](https://letsencrypt.org/) \
 Go to the [letsencrypt](https://certbot.eff.org/lets-encrypt/debianbuster-nginx) and see simple steps:\
 ```
