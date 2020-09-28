@@ -19,7 +19,7 @@ Simplifications:
 5. Main project directory: /home/a1/backend/project/
 
 -----
-Step 1. After connecting through SSH we add new user and add user to `sudo` group.
+**Step 1. After connecting through SSH we add new user and add user to `sudo` group.**\
 ```
 sudo adduser a1
 sudo usermod -aG sudo a1
@@ -35,7 +35,8 @@ User a1
 Port 2022
 ```
 
-Step 2. Return to server and edit `sshd_config` and change `port`.
+
+**Step 2. Return to server and edit `sshd_config` and change `port`.**\
 ```
 sudo mcedit /etc/ssh/sshd_config
 PermitRootLogin no
@@ -58,7 +59,8 @@ I like `oh-my-zsh`. Set of plugins for zsh.
 oh-my-zsh:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
-Step 4. Install python from source.\
+
+**Step 4. Install python from source**\
 Note1. I create .python folder inside a home directory. This is a good practic install python to one directory.
 In a future if you wish to delete it python version - you simple delete folder .python.\
 Note2. `prefix` - directory for installation\
