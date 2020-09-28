@@ -36,7 +36,7 @@ Port 2022
 ```
 
 
-**Step 2. Return to server and edit `sshd_config` and change `port`.**\
+**Step 2. Return to server and edit `sshd_config` and change `port`.**
 ```
 sudo mcedit /etc/ssh/sshd_config
 PermitRootLogin no
@@ -81,11 +81,11 @@ export PATH=$PATH:/home/a1/.python/bin
 ```
 
 
-**Step 5. Cloning project from repo**
+**Step 5. Cloning project from repo**\
 Github, Bitbucket, Gitlab. Which you wish?
 
 
-**Step 6. Install and configure postgreSQL**
+**Step 6. Install and configure postgreSQL**\
 Note1. Install latest version of postgreSQL\
 Note2. If you have database dump, you may download all data to your new database.\
 
@@ -116,7 +116,7 @@ pip install -r requirements.txt
 
 ```
 
-**Step 8. Nginx, Gunicorn, Supervisor**
+**Step 8. Nginx, Gunicorn, Supervisor**\
 Nginx:
 
 /etc/nginx/sites-enabled/site.conf\
@@ -212,7 +212,7 @@ sudo supervisorctl update
 sudo supervisorctl restart all
 ```
 
-**Step 9. Media and Static**
+**Step 9. Media and Static**\
 I have many problems with static and media files on production.
 For example, 403 Forbidden error.
 Finally, I found solution:
