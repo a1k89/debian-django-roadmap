@@ -231,7 +231,7 @@ python manage.py collectstatic
 ```
 
 Step 10 (optional). SSL \
-Note 1. Use [letsencrypt - free and great open source solution](https://letsencrypt.org/){:target="__blank"}
+Note 1. Use [letsencrypt - free and great open source solution](https://letsencrypt.org/){:target="_blank"} 
 
 
 
