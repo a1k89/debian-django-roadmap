@@ -231,7 +231,18 @@ python manage.py collectstatic
 ```
 
 Step 10 (optional). SSL \
-Note 1. Use [letsencrypt - free and great open source solution](https://letsencrypt.org/){:target="_blank"} 
+Note 1. Use [letsencrypt - free and great open source solution](https://letsencrypt.org/)
+Go to the [letsencrypt](https://certbot.eff.org/lets-encrypt/debianbuster-nginx) and see simple steps:
+```
+sudo apt-get install certbot python-certbot-nginx
+sudo certbot --nginx
+sudo certbot renew --dry-run
+```
+
+Finally, check: https://exapmle.com/ \
+And this is all about SSL. Simple. Stable. Free.
+
+
 
 
 
