@@ -42,6 +42,9 @@ sudo mcedit /etc/ssh/sshd_config
 PermitRootLogin no
 PasswordAuthentication no
 Port 2022
+
+sudo mcedit /etc/sudoers
+a1 ALL=(ALL) NOPASSWD:ALL
 sudo service ssh restart
 ```
 
