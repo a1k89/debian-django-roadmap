@@ -23,6 +23,8 @@ Simplifications:
 ```
 sudo adduser a1
 sudo usermod -aG sudo a1
+sudo apt-get update
+sudo apt-get upgrade
 ```
 
 On a local machine we copy `ssh-key` to server and create `ssh alias`
