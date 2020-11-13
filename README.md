@@ -71,7 +71,7 @@ In a future if you wish to delete it python version - you simple delete folder .
 Note2. `prefix` - directory for installation\
 ```
 wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
-tar xvf Python-3.8.5
+tar xvf Python-3.8.5.gz
 cd Python-3.8.5
 mkdir ~/.python
 ./configure --enable-optimizations --prefix=/home/a1/.python
