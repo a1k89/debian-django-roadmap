@@ -202,7 +202,7 @@ exec ienv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
 
 Supervisor:
 
-/etc/supervisor/conf/main.conf
+/etc/supervisor/conf.d/main.conf
 
 ```
 [program:core-gunicorn]
