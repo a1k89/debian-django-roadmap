@@ -113,7 +113,7 @@ create database a1db with owner a1dbuser;
 **Step 7. Install packages**
 ```
 Create virtual environment:
-python3.7 -m venv ienv
+python3.8 -m venv ienv
 source ienv/bin/activate
 
 Finally:
@@ -124,7 +124,7 @@ pip install -r requirements.txt
 **Step 8. Nginx, Gunicorn, Supervisor**\
 Nginx:
 
-/etc/nginx/sites-enabled/site.conf\
+/etc/nginx/sites-available/site.conf\
 
 ```
 upstream main {
