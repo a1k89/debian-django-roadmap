@@ -40,12 +40,12 @@ Port 2022
 
 **Step 2. Return to server and edit `sshd_config` and change `port`.**
 ```
-sudo mcedit /etc/ssh/sshd_config
+sudo vim /etc/ssh/sshd_config
 PermitRootLogin no
 PasswordAuthentication no
 Port 2022
 
-sudo mcedit /etc/sudoers
+sudo vim /etc/sudoers
 a1 ALL=(ALL) NOPASSWD:ALL
 sudo service ssh restart
 ```
@@ -70,9 +70,9 @@ Note1. I create .python folder inside a home directory. This is a good practic i
 In a future if you wish to delete it python version - you simple delete folder .python.\
 Note2. `prefix` - directory for installation\
 ```
-wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
-tar xvf Python-3.8.5.gz
-cd Python-3.8.5
+wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tgz
+tar xvf Python-3.9.5.gz
+cd Python-3.9.5
 mkdir ~/.python
 ./configure --enable-optimizations --prefix=/home/a1/.python
 make -j8
@@ -87,7 +87,7 @@ export PATH=$PATH:/home/a1/.python/bin
 
 
 **Step 5. Cloning project from repo**\
-Github, Bitbucket, Gitlab. Which you wish?
+Github, Bitbucket, Gitlab...
 
 
 **Step 6. Install and configure postgreSQL**\
@@ -113,7 +113,7 @@ create database a1db with owner a1dbuser;
 **Step 7. Install packages**
 ```
 Create virtual environment:
-python3.8 -m venv ienv
+python3.9 -m venv ienv
 source ienv/bin/activate
 
 Finally:
