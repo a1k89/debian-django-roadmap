@@ -30,7 +30,7 @@ sudo apt-get upgrade
 On a local machine we copy `ssh-key` to server and create `ssh alias`
 ```
 ssh-copy-id a1@example.com
-sudo mcedit /ssh/ssh_config
+sudo vim /ssh/ssh_config
 Host example
 HostName example.com
 User a1
@@ -81,7 +81,7 @@ sudo make altinstall
 
 Add python to path:
 ```
-sudo mcedit ~/.zshrc
+sudo vim ~/.zshrc
 export PATH=$PATH:/home/a1/.python/bin
 ```
 
